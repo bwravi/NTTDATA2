@@ -1,0 +1,14 @@
+{
+  "CROSS_SERVICE1": {
+    "object_owner": {
+      "container_role": [
+        "CURR_ROLE"
+      ]
+    },
+    "application_user": {
+      "container_role": [
+        "CURR_ROLE"
+      ]
+    }
+  }
+}

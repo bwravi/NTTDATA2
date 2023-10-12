@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="PROJ4::CVS_SALES2" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CVS_SALES2"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="PROJ4::ORDERS">
+    <resourceUri>PROJ4::ORDERS</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="ORDID"/>
+      <viewAttribute id="ORDER_DATE"/>
+      <viewAttribute id="REQ_DATE"/>
+      <viewAttribute id="CUSTID"/>
+      <viewAttribute id="MATID"/>
+      <viewAttribute id="EMPID"/>
+      <viewAttribute id="ORDER_QTY"/>
+      <viewAttribute id="UNIT"/>
+      <viewAttribute id="PRICE"/>
+      <viewAttribute id="CURRENCY"/>
+      <viewAttribute id="YR"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="Amount" datatype="DECIMAL" length="17" scale="2" expressionLanguage="SQL">
+        <formula>&quot;ORDER_QTY&quot; * &quot;PRICE&quot;</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="PROJ4::ORDERS"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Projection_1">
+  <attributes>
+    <attribute id="ORDID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ORDID"/>
+      <keyMapping columnObjectName="Projection_1" columnName="ORDID"/>
+    </attribute>
+    <attribute id="ORDER_DATE" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ORDER_DATE"/>
+      <keyMapping columnObjectName="Projection_1" columnName="ORDER_DATE"/>
+    </attribute>
+    <attribute id="REQ_DATE" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="REQ_DATE"/>
+      <keyMapping columnObjectName="Projection_1" columnName="REQ_DATE"/>
+    </attribute>
+    <attribute id="CUSTID" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CUSTID"/>
+      <keyMapping columnObjectName="Projection_1" columnName="CUSTID"/>
+    </attribute>
+    <attribute id="EMPID" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EMPID"/>
+      <keyMapping columnObjectName="Projection_1" columnName="EMPID"/>
+    </attribute>
+    <attribute id="UNIT" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="UNIT"/>
+      <keyMapping columnObjectName="Projection_1" columnName="UNIT"/>
+    </attribute>
+    <attribute id="CURRENCY" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CURRENCY"/>
+      <keyMapping columnObjectName="Projection_1" columnName="CURRENCY"/>
+    </attribute>
+    <attribute id="YR" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="YR"/>
+      <keyMapping columnObjectName="Projection_1" columnName="YR"/>
+    </attribute>
+    <attribute id="MATID$local">
+      <descriptions defaultDescription="MATID"/>
+      <keyMapping columnObjectName="Projection_1" columnName="MATID"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="ORDER_QTY" order="6" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="ORDER_QTY"/>
+      <measureMapping columnObjectName="Projection_1" columnName="ORDER_QTY"/>
+    </measure>
+    <measure id="PRICE" order="8" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="PRICE"/>
+      <measureMapping columnObjectName="Projection_1" columnName="PRICE"/>
+    </measure>
+    <measure id="Amount" order="11" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="Amount"/>
+      <measureMapping columnObjectName="Projection_1" columnName="Amount"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+  <sharedDimensions>
+    <logicalJoin associatedObjectUri="PROJ4::CVD_MATERIAL">
+      <attributes>
+        <attributeRef>MATID$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>MATID</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_N" joinType="referential" joinOperator="Equal"/>
+      <associatedAttributeFeatures/>
+    </logicalJoin>
+  </sharedDimensions>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="219"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Projection_1" modelObjectNameSpace="StarJoinViewNodeInput" modelObjectType="repository">
+      <upperLeftCorner x="271" y="26"/>
+      <rectangleSize width="160.36279296875"/>
+    </shape>
+    <shape modelObjectName="PROJ4::CVD_MATERIAL" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="2" y="19"/>
+      <rectangleSize width="204.455078125"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

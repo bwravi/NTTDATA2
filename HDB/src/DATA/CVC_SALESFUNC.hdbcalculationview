@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" xmlns:Variable="http://www.sap.com/ndb/BiModelVariable.ecore" id="PROJ4::CVC_SALESFUNC" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CVC_SALESFUNC"/>
+<localVariables>
+  <variable id="MAT" parameter="true">
+    <descriptions defaultDescription=" "/>
+    <variableProperties datatype="NVARCHAR" length="18" scale="null">
+      <valueDomain type="AttributeValue">
+        <externalLikeStructureName>PROJ4::MAT_MAST</externalLikeStructureName>
+        <externalLikeElementName>MATID</externalLikeElementName>
+      </valueDomain>
+      <selection multiLine="false" type="SingleValue"/>
+    </variableProperties>
+  </variable>
+</localVariables>
+<variableMappings/>
+<dataSources/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:TableFunctionView" id="TableFunction_1" tableFunctionName="PROJ4::TAB_FUNC1">
+    <viewAttributes/>
+    <calculatedViewAttributes/>
+    <variableMapping xsi:type="Variable:VariableMapping">
+      <targetVariable name="MAT"/>
+      <localVariable>MAT</localVariable>
+    </variableMapping>
+  </calculationView>
+</calculationViews>
+<logicalModel id="TableFunction_1">
+  <attributes>
+    <attribute id="UNIT" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="UNIT"/>
+      <keyMapping columnObjectName="TableFunction_1" columnName="UNIT"/>
+    </attribute>
+    <attribute id="CURRENCY" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CURRENCY"/>
+      <keyMapping columnObjectName="TableFunction_1" columnName="CURRENCY"/>
+    </attribute>
+    <attribute id="YR" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="YR"/>
+      <keyMapping columnObjectName="TableFunction_1" columnName="YR"/>
+    </attribute>
+    <attribute id="ORDID" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ORDID"/>
+      <keyMapping columnObjectName="TableFunction_1" columnName="ORDID"/>
+    </attribute>
+    <attribute id="CUSTID" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CUSTID"/>
+      <keyMapping columnObjectName="TableFunction_1" columnName="CUSTID"/>
+    </attribute>
+    <attribute id="MATID" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MATID"/>
+      <keyMapping columnObjectName="TableFunction_1" columnName="MATID"/>
+    </attribute>
+    <attribute id="EMPID" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EMPID"/>
+      <keyMapping columnObjectName="TableFunction_1" columnName="EMPID"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="ORDER_QTY" order="1" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="ORDER_QTY"/>
+      <measureMapping columnObjectName="TableFunction_1" columnName="ORDER_QTY"/>
+    </measure>
+    <measure id="PRICE" order="3" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="PRICE"/>
+      <measureMapping columnObjectName="TableFunction_1" columnName="PRICE"/>
+    </measure>
+    <measure id="ORDER_DATE" order="7" aggregationType="min" measureType="simple">
+      <descriptions defaultDescription="ORDER_DATE"/>
+      <measureMapping columnObjectName="TableFunction_1" columnName="ORDER_DATE"/>
+    </measure>
+    <measure id="REQ_DATE" order="8" aggregationType="min" measureType="simple">
+      <descriptions defaultDescription="REQ_DATE"/>
+      <measureMapping columnObjectName="TableFunction_1" columnName="REQ_DATE"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="TableFunction_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="193"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

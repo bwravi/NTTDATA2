@@ -1,0 +1,14 @@
+{
+  "role": {
+    "name": "PROJ4::UNMASK_ROLE",
+    "object_privileges": [
+      {
+        "name": "PROJ4::CVD_CUSTOMER",
+        "type": "VIEW",
+        "privileges": [
+          "UNMASKED"
+        ]
+      }
+    ]
+  }
+}

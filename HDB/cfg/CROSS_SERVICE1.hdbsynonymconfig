@@ -1,0 +1,8 @@
+{
+  "PROJ4::TCURN": {
+    "target": {
+      "object": "TCURN",
+      "schema.configure": "CROSS_SERVICE1/schema"
+    }
+  }
+}
