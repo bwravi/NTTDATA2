@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="PROJ4::CVC_DAY2" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CVC_DAY2"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="ESH_MODEL">
+    <resourceUri>ESH_MODEL</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews/>
+<logicalModel id="ESH_MODEL">
+  <attributes>
+    <attribute id="SCHEMA_NAME" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SCHEMA_NAME"/>
+      <keyMapping columnObjectName="ESH_MODEL" columnName="SCHEMA_NAME"/>
+    </attribute>
+    <attribute id="VIEW_NAME" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="VIEW_NAME"/>
+      <keyMapping columnObjectName="ESH_MODEL" columnName="VIEW_NAME"/>
+    </attribute>
+    <attribute id="PACKAGE_ID" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PACKAGE_ID"/>
+      <keyMapping columnObjectName="ESH_MODEL" columnName="PACKAGE_ID"/>
+    </attribute>
+    <attribute id="OBJECT_NAME" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="OBJECT_NAME"/>
+      <keyMapping columnObjectName="ESH_MODEL" columnName="OBJECT_NAME"/>
+    </attribute>
+    <attribute id="OBJECT_SUFFIX" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="OBJECT_SUFFIX"/>
+      <keyMapping columnObjectName="ESH_MODEL" columnName="OBJECT_SUFFIX"/>
+    </attribute>
+    <attribute id="ENTERPRISE_SEARCH_ENABLED" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ENTERPRISE_SEARCH_ENABLED"/>
+      <keyMapping columnObjectName="ESH_MODEL" columnName="ENTERPRISE_SEARCH_ENABLED"/>
+    </attribute>
+    <attribute id="ODATA_ID" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ODATA_ID"/>
+      <keyMapping columnObjectName="ESH_MODEL" columnName="ODATA_ID"/>
+    </attribute>
+    <attribute id="CONFIGURATION_ID" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CONFIGURATION_ID"/>
+      <keyMapping columnObjectName="ESH_MODEL" columnName="CONFIGURATION_ID"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="LAST_CHANGED" order="6" aggregationType="min" measureType="simple">
+      <descriptions defaultDescription="LAST_CHANGED"/>
+      <measureMapping columnObjectName="ESH_MODEL" columnName="LAST_CHANGED"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
